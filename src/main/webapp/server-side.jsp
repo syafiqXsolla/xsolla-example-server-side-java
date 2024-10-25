@@ -24,6 +24,12 @@
             </label>
             <br><br>
 
+            <label>
+                Webhook secret key
+                <input name="webhookSecretKey" type="text" value="<%= request.getAttribute("xsollaWebhookSecretKey") %>">
+            </label>
+            <br><br>
+
             <label>JSON body</label>
             <textarea cols="90" rows="40" name="body"><%= request.getAttribute("body") != null ? request.getAttribute("body") :
             "{\n  \"sandbox\": true,\n  \"user\": {\n    \"id\": {\n      \"value\": \"user-id\"\n    },\n    \"country\": {\n      \"value\": \"US\"\n    }\n  },\n  \"purchase\": {\n    \"items\": [\n      {\n        \"sku\": \"mysku01\",\n        \"quantity\": 1\n      }\n    ]\n  }\n}" %></textarea>

@@ -33,6 +33,8 @@ mvn clean install
 
 The output xsolla-example.war file will be in the target directory.
 
+**It's crucial to remember that your project needs to be rebuilt whenever changes are made to the codebase or .env variables.**
+
 ### 3. Start Docker Containers
 
 Run the project using Docker Compose:
@@ -43,13 +45,14 @@ docker-compose up --build
 
 The application will be accessible at http://localhost:8080/xsolla-example/server-side.
 
+**It's crucial to remember that your Docker need to be rebuilt too after every project rebuilt.**
+
 ### 4. Configure Ngrok
 
 ![screenshot](doc/img/ngrok-url.png)
 Ngrok provides a public URL for accessing your local server. You can open the Ngrok dashboard at http://localhost:4040.
 
-Copy the resulting URL and append /webhook.php to it (for example, https://<random>
-.ngrok-free.app/xsolla-example/webhook.php`) and add it to the webhook settings of your project at https://publisher.xsolla.com/<YOUR_MERCHANT>/projects/<YOUR_PROJECT>/edit/webhooks/`.
+Copy the resulting URL and append /xsolla-example/webhook to it (for example, https://<random>.ngrok-free.app/xsolla-example/webhook) and add it to the webhook settings of your project at https://publisher.xsolla.com/<YOUR_MERCHANT>/projects/<YOUR_PROJECT>/edit/webhooks/.
 
 ### 5. Add a product in Publisher Account
 

@@ -20,12 +20,14 @@ public class ServerSide extends HttpServlet {
     private final String projectId;
     private final String apiKey;
     private final String backendPort;
+    private final String webhookSecretKey;
 
     public ServerSide() {
         Dotenv dotenv = Dotenv.load();
         this.projectId = dotenv.get("XSOLLA_PROJECT_ID");
         this.apiKey = dotenv.get("XSOLLA_API_KEY");
         this.backendPort = dotenv.get("BACKEND_PORT");
+        this.webhookSecretKey = dotenv.get("XSOLLA_WEBHOOK_SECRET_KEY");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,6 +89,7 @@ public class ServerSide extends HttpServlet {
             request.setAttribute("body", body);
             request.setAttribute("xsollaProjectId", this.projectId);
             request.setAttribute("xsollaApiKey", this.apiKey);
+            request.setAttribute("xsollaWebhookSecretKey", this.webhookSecretKey);
 
         } catch (Exception e) {
             request.setAttribute("apiResponse", "Error processing request: " + e.getMessage());
