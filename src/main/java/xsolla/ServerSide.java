@@ -34,6 +34,7 @@ public class ServerSide extends HttpServlet {
         request.setAttribute("xsollaProjectId", this.projectId);
         request.setAttribute("xsollaApiKey", this.apiKey);
         request.setAttribute("backendPort", this.backendPort);
+        request.setAttribute("xsollaWebhookSecretKey", this.webhookSecretKey);
 
         request.getRequestDispatcher("/server-side.jsp").forward(request, response);
     }
